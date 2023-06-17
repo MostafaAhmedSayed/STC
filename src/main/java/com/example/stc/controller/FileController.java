@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("file/api/v1")
 public class FileController {
+    private final FileService fileService;
     @Autowired
-    private FileService fileService;
+    FileController(FileService fileService) {
+        this.fileService = fileService;
+    }
 }

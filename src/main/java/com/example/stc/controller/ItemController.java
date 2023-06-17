@@ -3,7 +3,6 @@ package com.example.stc.controller;
 import com.example.stc.entity.File;
 import com.example.stc.entity.Item;
 import com.example.stc.service.ItemService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -16,8 +15,12 @@ import java.io.IOException;
 @RestController
 @RequestMapping("item/api/v1")
 public class ItemController {
+
+    private final ItemService itemService;
     @Autowired
-    private ItemService itemService;
+    ItemController(ItemService itemService) {
+        this.itemService = itemService;
+    }
 
     @PostMapping("/space")
     public Item createSpace(@RequestBody Item item ){

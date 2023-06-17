@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("permissions/api/v1")
 public class PermissionsController {
 
+    private final PermissionsService permissionsService;
     @Autowired
-    private PermissionsService permissionsService;
+    PermissionsController(PermissionsService permissionsService) {
+        this.permissionsService = permissionsService;
+    }
 }

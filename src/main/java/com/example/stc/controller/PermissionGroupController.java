@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("group/api/v1")
 public class PermissionGroupController {
+
+    private final PermissionGroupService permissionGroupService;
     @Autowired
-    private PermissionGroupService permissionGroupService;
+    PermissionGroupController(PermissionGroupService permissionGroupService) {
+        this.permissionGroupService = permissionGroupService;
+    }
 }
